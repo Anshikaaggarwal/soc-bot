@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soc-bot home page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', 'sans-serif';
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(185, 185, 161);
+    color: grey;
+}
+a{
+    text-decoration: none;
+    color: grey;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(185, 185, 161);
+    padding: 6px 6%; /*top-right and then left-right */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);/*The shadow is 5 pixels down, 0 pixels to the right, has a blur radius of 10 pixels*/
+}
+.logo{
+    width:30px;
+    margin-right: 15px;
+    display: block;
+}
+.navbar-center ul li {
+    display: inline-block;
+    list-style: none;
+}
+.navbar-center ul li a{
+display: flex;
+align-items: center;
+font-size: 14px;
+margin: 5px 8px;
+padding-right: 5px;
+position: relative;
+}
+.navbar-center ul li a img{
+width: 30px;
+}
+.navbar-center ul li a::after{
+content: '';
+width: 0%;
+height: 2px;
+background: #052d69;
+position: absolute;
+bottom: -15px;
+transition: width 0.3s;
+}
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-profile-img {
+    width: 40px;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-center ul li a:hover::after{
+    width:100%;
+}
+.navbar-center ul li a.active-link::after{
+    width:100%;
+}
+.nav-profile-img{
+    width: 40px;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+    position : relative;
+}
+.online{
+    position: relative;
+}
+.online::after{
+    content: '';
+    width: 7px;
+    height: 7px;
+    border: 2px solid #ffff;
+    border-radius: 50%;
+    right: -5px;
+    top: -5px;
+    background: #41db51;
+    position: absolute;
+}
+.search-box{
+    background: #f0f2f5;
+width:250px;
+border-radius: 20px;
+display: flex;
+align-items: center;
+padding:0 15px;
+}
+.search-box img {width: 20px;
+margin-right: 10px;
+}
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    width: 30px;
+    margin-right: 15px;
+    display: block;
+}
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: black;
+    padding: 8px;
+}
+
+/*navbar close*/
+.container{
+    padding:20px 6% ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.left-sidebar{
+    flex-basis: 25%;
+    align-self: flex-start;
+    position: sticky;
+    top: 73px;
+}
+
+
+.sidebar-profile-box{
+    background: #ffffffa0;
+}
+.sidebar-profile-info{
+    padding: 0 25px;
+}
+.sidebar-profile-info img{
+    width: 90px;
+    border-radius: 50%;
+    background: #ffffffa0;
+    padding: 4px;
+    margin-top: -45px;
+}
+.sidebar-profile-info h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+}
+.sidebar-profile-info h3{
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+}
+.sidebar-profile-info ul{
+    list-style: none;
+margin: 20px 0;
+}
+.sidebar-profile-info ul li{
+    width: 100%;
+    margin: 5px 0;
+    font-size: 13px;
+}
+.sidebar-profile-info ul li span{
+float: right;
+color: #045be6;
+}
+.sidebar-activity{
+    background: #ffffff77;
+    pad: 5px 25px;
+    margin: 12px 0;
+}
+.sidebar-activity h3{
+    color: #ffffff77;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 20px 0 10px;
+}
+.sidebar-activity a{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff77
+    margin: 3px 0;
+}
+.sidebar-activity a img{
+    width: 20px;
+    margin-right: 10px;
+}
+.discover-more-link{
+    border-top: 1px solid #ffffff77;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: -25px;
+}
+.discover-more-link a{
+    color: #045be6;
+    display: inline-block;
+    margin: 10px 0;
+ }
+/*---------right sidebar-----------*/
+ .right-sidebar{
+    flex-basis: 25%;
+    align-self: flex-start;
+    height: 100px;
+    position: sticky;
+    top: 73px;
+}
+.sidebar-news{
+    background: #ffffff77;
+    padding: 10px 25px;
+}
+.info-icon{
+    width: 15px;
+    float: right;
+    margin-top: 15px;
+}
+
+.sidebar-news h3{
+    font-size: 30px;
+    font-weight: 600;
+    color: #222;
+    margin: 10px 0 30px;
+}
+.sidebar-news a{
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+   margin-top: 10px;
+   margin-bottom: 2px;
+}
+.sidebar-news span{
+    font-size: 14px;
+    
+}
+.event{
+    text-transform: capitalize;
+}
+
+
+.sidebar-news .read-more-link{
+color: #045be6;
+font-weight: 500;
+margin: 20px 0 10px;
+}
+.sidebar-ad{
+    background: #ffffff8f;
+    padding: 15px 25px;
+    text-align: center;
+    margin: 12px 0;
+    font-size: 12px;
+}
+.sidebar-ad img{
+    width: 60px;
+    border-radius: 50%;
+    margin: 4px;
+}
+.sidebar-ad small{
+    float: right;
+    font-weight: 500;
+}
+.sidebar-ad p{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.sidebar-ad b{
+    display: block;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.ad-link{
+    display: inline-block;
+    border: 1px solid #045be6;
+    border-radius: 30px;
+    padding: 5px 15px;
+    color: #045be6;
+    font-weight: 500;
+    margin: 20px auto 10px;
+}
+
+.sidebar-useful-links{
+ text-transform:capitalize;
+ padding: 15px 25px;
+ text-align: center;
+}
+sidebar-useful-links a{
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+}
+.copyright-msg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.copyright-msg img{
+    width: 18px;
+    margin-right: 4px;
+}
+
+
+/*---------main content-----------*/
+
+.main-content{
+    flex-basis: 47%;
+}
+.create-post{
+   background: #fff;
+   border-bottom: 1px solid #ddd;
+}
+.create-post-input{
+    padding: 20px 25px 10px;
+    display: flex;
+    align-items: flex-start;   
+}
+.create-post-input img{
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.create-post-input textarea{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    resize: none;
+    background: transparent;
+    margin-top: 8px;
+}
+::placeholder{
+    font-weight: 500;
+}
+.create-post-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #dddddd92;
+}
+
+.create-post-links li {
+    list-style: none;
+    flex-basis: 25%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.create-post-links li img {
+    width: 30px; 
+    margin-bottom: 5px;
+}
+.create-post-links li span {
+    font-size: 12px; /* Adjust the font size as needed */
+    color: #555555; /* Adjust the color as needed */
+    text-align: center;
+}
+
+.create-post-links li img {
+    width: 30px; /* Adjust the size as needed */
+    margin-bottom: 5px;
+    color: #045be6; /* Add this line to set the icon color to blue */
+}
+.create-post-links li span {
+    font-size: 12px; /* Adjust the font size as needed */
+    color: #045be6; /* Add this line to set the text color to blue */
+    text-align: center;
+}
+.create-post-links li:last-child {
+    background-color: #045be6; /* Blue background color */
+    color: white; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Adjust padding as needed */
+}
+
+.create-post-links li:last-child:hover {
+    background-color: #024577; /* Darker blue on hover */
+}
+.sort-by{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+.sort-by hr{
+    flex: 1;
+    border: 0;
+    height: 1px;
+    background: #ccc;
+}
+.sort-by img{
+    width: 12px;
+    height: 12px;
+margin-left: 3px;
+}
+.sort-by p{
+    font-size: 13px;
+    padding-left: 5px;
+}
+.sort-by p span{
+    font-weight: 600;
+    cursor: pointer;
+}
+.post{
+    background: #fff;
+    padding: 20px 25px 5px;
+    margin: 5px 0 15px;
+}
+.post-author{
+    display: flex;
+    align-items: flex-start;
+margin-bottom: 20px;
+}
+.post-author img{
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.post-author h1{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.post-author small{
+ display: block;
+ margin-bottom: -2px;
+}
+.post p{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.post-stats{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+    padding: bottom 6px; ;
+}
+.post-stats div{
+    display: flex;
+    align-items: center;
+}
+.post-stats img{
+    width: 15px;
+    margin-right: -5p
+x;
+}
+.liked-users{
+    margin-left: 10px;
+
+}
+.post-activity{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+.post-activity div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post-activity div img{
+    width: 22px;
+}
+.post-activity-user-icon{
+    width: 22px;
+    border-radius: 50;
+}
+.post-activity-arrow-icon{
+    width: 12px;
+    margin-left: 5px;
+}
+.post-options-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.post-options-buttons div {
+    display: flex;
+    align-items: center;
+}
+.post-activity-link img{
+    width: 18px;
+    margin-right: 8px;
+}
+
+.post-options-buttons div:hover img[src="like.jpeg"] {
+    filter: brightness(1.5); /* This will make the like button appear brighter on hover */
+}
+
+/* Add this style to handle the toggle effect when the like button is active */
+.post-options-buttons div.active img[src="like.jpeg"] {
+    filter: brightness(1.5); /* This can be adjusted based on your preference */
+}
+
+/*-----------profile drop down menu ---------*/
+.profile-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 320px;
+height: 50px;
+
+}
+
+.profile-menu{
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info img{
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.user-info h3{
+    font-weight: 500;
+    margin-bottom: -7px;
+}
+.user-info a{
+    color: #c9dbf8;
+    font-size: 13px;
+}
+
+.profile-menu hr{
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #Fff;
+    margin: 15px 0 10px;
+}
+.profile-menu-link{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin: 12px 0;
+    font-size: 14px;
+
+}
+.profile-menu-link p{
+    width: 100%;
+}
+.profile-menu-link img{
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+/*-----------profile-page-----------------*/
+.profile-main{
+    flex-basis: 73%;
+}
+.profile-sidebar{
+    flex-basis: 25%;
+    position: sticky;
+    align-self: flex-start;
+    top: 73%;
+}
+
+.profile-container{
+    background: #fff;
+
+}
+
+.profile-container-inner{
+padding: 0 4% 10px;
+}
+.profile-pic{
+    width: 150px;
+    border-radius: 50%;
+    margin-top: -75px;
+    padding: 5px;
+    background: #fff;
+}
+
+.profile-container h1{
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+}
+.profile-container b{
+    font-weight: 500;
+}
+.profile-container p{
+    margin-top: 5px;
+}
+.profile-container p a{
+    color: #045be6;
+    font-weight: 500;
+}
+.mutual-connection{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    /*top bottom is 20px and left right is 0*/
+}
+.mutual-connection img{
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.profile-btn{
+    margin: 20px 0;
+
+}
+.profile-btn a{
+    display: inline-flex;
+    align-items: center;
+    background: #e4e6eb;
+    padding: 6px 15px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.profile-btn a img{
+    width: 18px;
+    margin-right: 5px;
+}
+.profile-btn .primary-btn{
+    background: #045be6;
+    color: white;
+}
+.profile-description{
+    background: #fff;
+    padding: 20px 4% 30px;
+    margin: 12px 0;
+}
+
+.profile-description h2 {
+    color: #333;
+    
+    font-weight: 600;
+}
+
+.profile-desc-row {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+.profile-desc-row img {
+  
+    margin-right: 25px;
+    margin-top: 5px;
+}
+
+.profile-desc-row div {
+    width: 100%;
+}
+
+.profile-desc-row h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+/* Add this CSS in your existing stylesheet */
+
+.profile-description .carousel-container {
+display: flex;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+padding: 10px 0; /* Add some padding for better spacing */
+}
+
+.carousel-card {
+min-width: 30px;
+margin-right: 15px;
+scroll-snap-align: start;
+border-radius: 12px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border: 4px solid #8B4513; /* Brown border color */
+transition: transform 0.3s ease-in-out;
+}
+
+.carousel-card:hover {
+transform: scale(1.05); /* Enlarge on hover for a subtle effect */
+}
+
+.carousel-card img {
+width: 100%;
+height: 150px;
+object-fit: cover;
+}
+
+.carousel-card h3 {
+margin: 10px 0;
+font-size: 18px;
+color: #333;
+}
+
+.carousel-card p {
+margin-bottom: 15px;
+font-size: 16px;
+color: #555;
+}
+
+/* Style for scrollbar */
+.profile-description .carousel-container::-webkit-scrollbar {
+
+display: flex;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+padding: 10px 0; /* Add some padding for better spacing */
+justify-content: center; /* Center the carousel */
+height: 500px; 
+}
+
+.profile-description .carousel-container::-webkit-scrollbar-thumb {
+background-color: #8B4513; /* Brown color for the scrollbar thumb */
+border-radius: 4px;
+}
+
+.profile-description .carousel-container::-webkit-scrollbar-track {
+background-color: #f4f4f4;
+}
+.event-slide {
+    display: none;
+    align-items: center;
+}
+
+.event-slide img {
+    width: 300px;
+    height: 300px;
+}
+
+.event-info {
+    margin-top: 10px;
+}
+
+.event-info p {
+    margin: 5px 0;
+}
+.event-info a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #045be6;
+    color: white;
+    text-decoration: none;
+}
+.container {
+    display: flex;
+}
+
+.profile-main {
+    flex: 1; /* This allows the main content to take remaining space */
+}
+
+.right-profile-sidebar {
+    width: 300px; /* Adjust width as needed */
+    margin-left: 20px; /* Add margin to create space between main content and sidebar */
+    position: sticky;
+    top: 0;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+
+        <div class="navbar-left">
+            <a href="index.html" class="logo">
+                <img src="" alt="logo">
+            </a>
+            <div class="search-box">
+                <img src="search.jpeg">
+                <input type="text" placeholder="search a society ">
+            </div>
+        </div>
+        <div class="navbar-center">
+            <ul>
+                <li><a href="#" class="home">
+                        <img src="home.jpeg" class="active-link" alt="home"><span>Home</span>
+                    </a></li>
+                <li><a href="#" class="socs">
+                        <img src="my socs.jpeg" alt="home"><span>My societies</span> </a></li>
+                <li><a href="#" class="registeration">
+                        <img src="register.jpeg" alt="registeration"><span>registeration</span> </a></li>
+                <li><a href="#" class="messages">
+                        <img src="messages.jpeg" alt="messages"><span>messages</span> </a></li>
+                <li><a href="#" class="notifications">
+                        <img src="notifications.jpeg" alt="notifications"><span>notifications</span> </a></li>
+
+            </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="nav-profile-img online" onclick="toggleMenu()">
+                <a href="profile.html">
+                <img src="profile img.jpeg" class="nav-profile-img">
+            </a>
+            </div>
+
+        </div>
+
+        <!---profile-- drop - down-menu-->
+        <div class="profile-menu-wrap" id="profileMenu">
+            <div class="profile-menu">
+                <div class="user-info">
+                    <img src="profile img.jpeg">
+                    <div>
+                        <h3>Finivesta IGDTUW</h3>
+                        <a href="profile.html">See your profile</a>
+                    </div>
+                </div>
+                <hr>
+                <a href="#" class="profile-menu-link">
+                    <img src="feedback.jpeg">
+                    <p>Give feedback</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="profile-menu-link">
+                    <img src="settings.jpeg">
+                    <p>Settings & Privacy</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="profile-menu-link">
+                    <img src="help.jpeg">
+                    <p>Help & Support</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="profile-menu-link">
+                    <img src="display.png">
+                    <p>Display & Accessibility</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="profile-menu-link">
+                    <img src="my-items.jpeg">
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!--navbar close- ---->
+    <div class="container">
+        <div class="left-sidebar">
+            <div class="sidebar-profile-box">
+                <img src="cover-img.jpeg" width="100%">
+                <div class="sidebar-profile-info">
+                    <img src="profile img.jpeg">
+                    <h1>FINIVESTA</h1>
+                    <h3> Finance & Economic society of IGDTUW</h3>
+                    <ul>
+                        <li>Your profile views<span> 52</span></li>
+                        <li>Your post views<span> 900</span></li>
+                        <li>Your team members<span> 40</span></li>
+                    </ul>
+                </div>
+                <div class="sidebar-activity">
+                    <h3> RECENT</h3>
+                    <a href="#"><img src="recents.jpeg"> Finance</a>
+                    <a href="#"><img src="recents.jpeg"> technical skills</a>
+                    <a href="#"><img src="recents.jpeg"> stocks in web</a>
+                    <a href="#"><img src="recents.jpeg"> bidding websites</a>
+                    <a href="#"><img src="recents.jpeg"> blockchain</a>
+                    <a href="#"><img src="recents.jpeg"> bitcoin value</a>
+                    <h3> GROUPS</h3>
+                    <a href="#"><img src="groups.jpeg"> finivesta freshers'27 </a>
+                    <a href="#"><img src="groups.jpeg"> finivesta open to all </a>
+                    <a href="#"><img src="groups.jpeg"> finivesta content </a>
+                    <a href="#"><img src="groups.jpeg"> finivesta content 23-24 </a>
+                    <h3> GROUPS</h3>
+                    <a href="#"><img src="HASHTAG.jpeg"> Smartfinancing </a>
+                    <a href="#"><img src="HASHTAG.jpeg"> financewithtech </a>
+                    <a href="#"><img src="HASHTAG.jpeg"> onlinelearning</a>
+                    <div class="discover-more-link">
+                        <a href="https://www.instagram.com/finivesta_igdtuw/">Discover more</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-----------main content----------->
+        <div class="main-content">
+            <div class="create-post">
+                <div class="create-post-input">
+                    <img src="profile img.jpeg">
+                    <textarea rows="2" placeholder="Write a post"></textarea>
+                </div>
+                <div class="create-post-links">
+
+                    <li> <img src="photo.jpeg">
+                        <span> Photo</span>
+                    </li>
+                    <li><img src="video.jpeg"> <span>video</span></li>
+                    <li> <img src="event.jpeg"><span>Event</span> </li>
+                    <li>Post</li>
+                </div>
+            </div>
+            <div class="sort-by">
+                <hr>
+                <p>Sort by:<span>top<img src="top.jpeg"></span></p>
+            </div>
+            <div class="post">
+                <div class="post-author">
+                    <img src="am logo.jpeg">
+                    <div>
+                        <h1>Assetmantle IGDTUW</h1>
+                        <small>A blockchain and web3 society|building projects</small>
+                        <small>2 hours ago</small>
+                    </div>
+                </div>
+
+
+                <p>"Dive into the future of the Internet at Web 3 Community Day '23 presented by Multichain! 🚀 Join us
+                    for an exhilarating day of decentralized innovation, featuring our Ideathon where ideas take
+                    flight, the heart-pounding Hackathon where developers craft cutting-edge solutions, and engaging
+                    Conferences
+                    filled with thought-provoking discussions, keynote speeches, and panels exploring the latest
+                    trends and the future of decentralized technologies. Get ready for a day of learning, collaboration,
+                    and
+                    excitement as we collectively shape the destiny of
+                    the digital world! 👩‍💻✨ #Web3CommunityDay"</p>
+                <img src="post-pic.jpeg" width="100%">
+                <div class="post-stats">
+
+                    <div>
+                        <img src="clap.jpeg">
+                        <img src="like.jpeg">
+                        <img src="star post.jpeg">
+
+                        <span class="liked-users">Anshika and 50 others</span>
+                    </div>
+                    <div>
+                        <span>20 comments &middot; 40 shares </span>
+                    </div>
+                </div>
+                <div class="post-options">
+                    <div class="post-activity">
+                        <div>
+                            <img src="profile img.jpeg" class="post-activity-user-icon">
+                            <img src="top.jpeg" class="post-activity-arrow-icon" </div>
+                            <div class="post-options-buttons">
+                                <div>
+                                    <img src="like.jpeg" id="likeButton" onclick="toggleLike(this)">
+                                    <span> Like</span>
+                                </div>
+                                <div>
+                                    <img src="comment.jpeg">
+                                    <span>comment</span>
+                                </div>
+                                <div>
+                                    <img src="star post.jpeg">
+                                    <span> star</span>
+                                </div>
+                                <div>
+                                    <img src="send.jpeg">
+                                    <span>share</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------second post -->
+
+            <div class="post">
+                <div class="post-author">
+                    <img src="cb profile.jpeg">
+                    <div>
+                        <h1>Celestial biscuit IGDTUW</h1>
+                        <small>A tech society|celestial references</small>
+                        <small>3 hours ago</small>
+                    </div>
+                </div>
+
+
+                <p>"Conjunctions 2023, an alignment of diverging techstacks and varying dispositions, was the second
+                    twin-hackathon
+                    series organised by Celestial Biscuit IGDTUW, during the month of March. With the much awaited
+                    meteor shower
+                    followed by an equinox dwelling upon our horizons, it was a month filled with exploratory practices
+                    ranging from
+                    balancing Data Structures and Language Labs to diving deep into Machine Learning algorithms and
+                    designing approaches
+                    , all the while building connections"</p>
+                <img src="post cb.jpeg" width="100%">
+                <div class="post-stats">
+
+                    <div>
+                        <img src="clap.jpeg">
+                        <img src="like.jpeg">
+                        <img src="star post.jpeg">
+
+                        <span class="liked-users">Anshika and 50 others</span>
+                    </div>
+                    <div>
+                        <span>20 comments &middot; 40 shares </span>
+                    </div>
+                </div>
+                <div class="post-options">
+                    <div class="post-activity">
+                        <div>
+                            <img src="profile img.jpeg" class="post-activity-user-icon">
+                            <img src="top.jpeg" class="post-activity-arrow-icon" </div>
+                            <div class="post-options-buttons">
+                                <div>
+                                    <img src="like.jpeg" id="likeButton" onclick="toggleLike(this)">
+                                    <span> Like</span>
+                                </div>
+                                <div>
+                                    <img src="comment.jpeg">
+                                    <span>comment</span>
+                                </div>
+                                <div>
+                                    <img src="star post.jpeg">
+                                    <span> star</span>
+                                </div>
+                                <div>
+                                    <img src="send.jpeg">
+                                    <span>share</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-----------third post          ----------------------->
+            <div class="post">
+                <div class="post-author">
+                    <img src="gdsc logo.jpeg">
+                    <div>
+                        <h1>Google Developer Students Club IGDTUW</h1>
+                        <small>A tech society|connected to Google </small>
+                        <small>4 hours ago</small>
+                    </div>
+                </div>
+
+
+                <p>"🤩After an amazing commencement of Day 1. We proceed onto an even greater adventure for Day 2.🥳
+
+                    🖥️Hands on sessions on Metaverse, Blockchain Storage system, Web3 & Cybersecurity and finally
+                    Opensource in Emerging Tech domains.
+                    The whole day is jam packed with these amazing sessions by the best speakers of the domains.
+
+                    Cherry on the top, lunch is on us!! 😋
+                    💫So, come join us on 27 Oct, Friday to explore an amazing world full of emerging technologies &
+                    future prospects.👩🏻‍💻"</p>
+                <img src="post-gdsc.jpeg" width="100%">
+                <div class="post-stats">
+
+                    <div>
+                        <img src="clap.jpeg">
+                        <img src="like.jpeg">
+                        <img src="star post.jpeg">
+
+                        <span class="liked-users">Anshika and 50 others</span>
+                    </div>
+                    <div>
+                        <span>20 comments &middot; 40 shares </span>
+                    </div>
+                </div>
+                <div class="post-options">
+                    <div class="post-activity">
+                        <div>
+                            <img src="profile img.jpeg" class="post-activity-user-icon">
+                            <img src="top.jpeg" class="post-activity-arrow-icon" </div>
+                            <div class="post-options-buttons">
+                                <div>
+                                    <img src="like.jpeg" id="likeButton" onclick="toggleMenu()">
+                                    <span> Like</span>
+                                </div>
+                                <div>
+                                    <img src="comment.jpeg">
+                                    <span>comment</span>
+                                </div>
+                                <div>
+                                    <img src="star post.jpeg">
+                                    <span> star</span>
+                                </div>
+                                <div>
+                                    <img src="send.jpeg">
+                                    <span>share</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           </div>
+           
+            <!-----------right sidebar----------->
+           <div class="right-sidebar">
+            <div class="sidebar-news">
+                <img src="info.jpeg" class="info-icon">
+                <u>
+                    <h3>Past events </h3>
+                </u>
+                <div class="event">
+                    <a href="#"> harvard college project</a>
+                    <span>2022,may - 200 participants </span>
+                </div>
+
+                <div class="event">
+                    <a href="#"> logo design competition</a>
+                    <span>2022,oct - 50 participants </span>
+                </div>
+                <div class="event">
+                    <a href="#">online B-plan competition</a>
+                    <span>2023,feb - 250 participants </span>
+                </div>
+                <div class="event">
+                    <a href="#">Binge fest</a>
+                    <span>2022,nov - 400 participants</span>
+                    <a href="https://www.linkedin.com/company/finivesta-igdtuw/mycompany/" class="read-more-link">
+                        Read
+                        More</a>
+                </div>
+            </div>
+            <div class="sidebar-ad">
+                <small>Ad &middot;&middot; &middot; </small>
+                <p>Learn finance with virtual money</p>
+
+                <div class="ad">
+                    <img src="profile img.jpeg">
+                    <img src="stocks.jpeg">
+                </div>
+                <b> Earn and learn in Stocksgro"</b>
+                <a href="https://www.stockgro.club/" class="ad-link">Learn More</a>
+
+            </div>
+            <div class="sidebar-useful-links">
+                <a href="">About</a>
+                <a href="">Accessibility</a>
+                <a href="">Help center</a>
+                <a href="">privacy policy</a>
+                <a href="">advertising</a>
+                <a href="">get the app</a>
+            </div>
+            <div class="copyright-msg">
+                <img class="logo-img" src="logo.jpeg" alt="logo">
+                <p>
+                    Linkedup &#169; 2022. All rights reserved </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-------------------------adding   javascript------------>
+    <script>
+
+
+
+       
+    </script>
+</body>
+
+</html>
